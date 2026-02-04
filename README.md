@@ -127,5 +127,6 @@ medical nano/
 ```
 
 ## License
+![Screenshot 2026-02-04 121257](https://github.com/user-attachments/assets/344d6333-7c6e-45f5-9e9b-74f792782bfc)
 
 MIT.

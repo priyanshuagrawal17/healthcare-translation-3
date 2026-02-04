@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --doctor-bg: #e0f2fe;
+  --doctor-border: #0ea5e9;
+  --patient-bg: #fce7f3;
+  --patient-border: #ec4899;
+}
+
+body {
+  @apply bg-slate-50 text-slate-900 antialiased;
+}
+
+/* Mobile-friendly touch targets */
+@media (max-width: 640px) {
+  button, [role="button"], .clickable {
+    min-height: 44px;
+  }
+}
+
+/* Highlight search matches */
+mark.search-hit {
+  @apply bg-amber-200 rounded px-0.5;
+}

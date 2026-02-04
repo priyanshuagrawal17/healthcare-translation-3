@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Conversation {
+  id        String   @id @default(cuid())
+  title     String   @default("New Conversation")
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  messages  Message[]
+  summary   String?
+}
+
+model Message {
+  id             String       @id @default(cuid())
+  conversationId String
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  role          String       // "doctor" | "patient"
+  originalText   String       @default("")
+  translatedText String       @default("")
+  sourceLang     String       @default("en")
+  targetLang     String       @default("en")
+  createdAt      DateTime     @default(now())
+  audioBlob      String?      // base64 or URL for audio clip
+  audioDuration  Int?         // seconds
+}
